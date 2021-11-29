@@ -15,13 +15,14 @@ namespace PageMakerLib
         {
             left,
             right,
-            center
+            center,
+            justify
         }
 
         /// <summary>
         /// выравнивание параграфа
         /// </summary>
-        public AlignKind AlignP { get; set; } = AlignKind.left;
+        public AlignKind AlignP { get; set; } = AlignKind.justify;
 
         public override string ToString()
         {

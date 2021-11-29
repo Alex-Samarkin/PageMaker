@@ -32,6 +32,45 @@ namespace PageMakerLib
         /// </summary>
         public string End => "</font></p>";
 
+        public void Title()
+        {
+            Font.Size = Font.FontSize.Colossal;
+            Font.Face = Font.FontFace.sans_serif;
+            Align.AlignP = Align.AlignKind.center;
+        }
+        public void SubTitle()
+        {
+            Font.Size = Font.FontSize.VeryBig;
+            Font.Face = Font.FontFace.sans_serif;
+            Align.AlignP = Align.AlignKind.center;
+        }
+        /// <summary>
+        /// заголовк уровня i, если не попадает в интервал 1-4, то корректируется
+        /// </summary>
+        /// <param name="i"></param>
+        public void H(int i = 2)
+        {
+            if (i > 4)
+            {
+                i = 4;
+            }
 
+            if (i < 0)
+            {
+                i = 0;
+            }
+
+            Font.Size = Font.FontSize.Colossal - i;
+            Font.Face = Font.FontFace.serif;
+            Align.AlignP = Align.AlignKind.left;
+        }
+
+        public void OrdinaryJustify()
+        {
+            Font.Size = Font.FontSize.Normal;
+            Font.Color = Font.FontWebColor.navy;
+            Font.Face = Font.FontFace.serif;
+            Align.AlignP = Align.AlignKind.right;
+        }
     }
 }
