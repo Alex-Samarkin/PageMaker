@@ -13,8 +13,10 @@ namespace PageMaker
         static void Main(string[] args)
         {
             // output and waiting for Enter key
-            //Console.WriteLine(About.Description);
-            Console.WriteLine(About.Step2);
+            // Console.WriteLine(About.Description);
+            // Console.WriteLine(About.Step1);
+            // Console.WriteLine(About.Step2);
+            Console.WriteLine(About.Step3);
             Console.ReadLine();
 
             /// просмотрите класс Font
@@ -61,6 +63,45 @@ namespace PageMaker
             Console.WriteLine(paragraph);
             Console.WriteLine(paragraph1);
             Console.ReadLine();
+
+            HTMLDoc htmlDoc = new HTMLDoc();
+            htmlDoc.Add(paragraph);
+            htmlDoc.Add(paragraph1);
+
+            htmlDoc.GenerateHTML();
+            // output and waiting for Enter key
+            Console.WriteLine(htmlDoc.StringBuilder.ToString());
+
+            // создаем файл и отправляем его в браузер
+            htmlDoc.WriteFile();
+            Console.ReadLine();
+
+            // добавляем название
+            Paragraph t = new Paragraph();
+            t.Style.Title();
+            t.Text = "Похождения бравого солдата Швейка";
+            Paragraph t1 = new Paragraph();
+            t1.Style.SubTitle();
+            t1.Text = "Ярослав Гашек";
+            htmlDoc.Insert(t);
+            htmlDoc.Insert(t1,1);
+            htmlDoc.WriteFile();
+
+            // добавляем заголовок главы
+            Paragraph h2 = new Paragraph() { Text = "Мысли и размышления бравого солдата" };
+            h2.Style.H(2);
+            htmlDoc.Insert(h2, 2);
+            htmlDoc.WriteFile();
+            Console.ReadLine();
+
+            // добавляем автора
+            Paragraph auth = new Paragraph() { Text = "Писано Р.Б. Гашеком лета 1642 своею рукой" };
+            auth.Style.Autor();
+            htmlDoc.Insert(auth, 2);
+            htmlDoc.Add(auth);
+            htmlDoc.WriteFile();
+            Console.ReadLine();
+
         }
     }
 }

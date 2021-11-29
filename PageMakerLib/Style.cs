@@ -70,6 +70,14 @@ namespace PageMakerLib
             Font.Size = Font.FontSize.Normal;
             Font.Color = Font.FontWebColor.navy;
             Font.Face = Font.FontFace.serif;
+            Align.AlignP = Align.AlignKind.justify;
+        }
+
+        public void Autor()
+        {
+            Font.Size = Font.FontSize.Small;
+            Font.Color = Font.FontWebColor.lime;
+            Font.Face = Font.FontFace.cursive;
             Align.AlignP = Align.AlignKind.right;
         }
     }
